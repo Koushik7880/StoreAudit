@@ -1,4 +1,4 @@
-export default function ItemList() {
+export default function TaskList({ tasks }) {
   return (
     <div className="overflow-auto">
       <table className="table-fixed overflow-auto xl:w-full">
@@ -24,34 +24,21 @@ export default function ItemList() {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
-            {/* <td></td> */}
-            <td className="text-center">1</td>
-            <td className="text-center">Cement</td>
-            <td className="text-center">1</td>
-            <td className="text-center">1.1</td>
-          </tr>
-          <tr className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
-            {/* <td></td> */}
-            <td className="text-center">2</td>
-            <td className="text-center">Black Clot</td>
-            <td className="text-center">2</td>
-            <td className="text-center">2.1</td>
-          </tr>
-          <tr className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
-            {/* <td></td> */}
-            <td className="text-center">3</td>
-            <td className="text-center">White Clot</td>
-            <td className="text-center">1</td>
-            <td className="text-center">1.1</td>
-          </tr>
-          <tr className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
-            {/* <td></td> */}
-            <td className="text-center">4</td>
-            <td className="text-center">White Cement</td>
-            <td className="text-center">2</td>
-            <td className="text-center">2.1</td>
-          </tr>
+          {
+            tasks.map(task => (
+              <tr
+                key={task.SerialNo}
+                className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
+                {/* <td></td> */}
+                <td className="text-center">{task.SerialNo}</td>
+                <td className="text-center">{task.Itemname}</td>
+                <td className="text-center">{task.Rack}</td>
+                <td className="text-center">{task.Bin}</td>
+              </tr>
+            ))
+          }
+
+
         </tbody>
       </table>
     </div>
